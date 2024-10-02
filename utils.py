@@ -23,9 +23,14 @@ def load_csv(file_name):
 
 def load_api_key():
     """api_keyの取得"""
-    with open('config.json', 'r') as file:
-        config = json.load(file)
+    ## ローカル環境で動かす場合には、以下を実行する ##
+    #with open('config.json', 'r') as file:
+    #    config = json.load(file)
+    #api_key = config.get('api_key')
+    ################################################
 
-    api_key = config.get('api_key')
+    ## Streamlit Cloud上で動かす場合には、以下を実行する ##
+    api_key = st.secrets[APIkeys][OPENAI_API_KEY]
+    ####################################################
 
     return api_key
