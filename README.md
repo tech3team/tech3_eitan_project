@@ -10,8 +10,7 @@
 
 ## インストール
 ライブラリをインストールします。
-
-必要となるライブラリは、`requirements.txt`に的間ています。
+必要となるライブラリは、`requirements.txt`に書いています。
 ```
 pip3 install -r requirements.txt
 ```
@@ -23,7 +22,6 @@ python -m spacy download en_core_web_sm
 
 ## ファイル構造
 コード同士が干渉しないように作成しました。
-人のコードもあまりいじらないように結合しました。
 各機能を1ファイルに、`main.py`から呼び出しをかけています。
 
 ```txt 
