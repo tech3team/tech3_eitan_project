@@ -25,15 +25,20 @@ def load_csv(file_name):
         print(f"エラー: {e}")
         return None
 
-
 def load_api_key():
     """api_keyの取得"""
-    "" ローカル環境で動かす場合には、以下を実行する ""
-    #with open('config.json', 'r') as file:
-    #    config = json.load(file)
-    #api_key = config.get('api_key')
+    with open('config.json', 'r') as file:
+        config = json.load(file)
 
-    "" Streamlit Cloud上で動かす場合には、以下を実行する 
-    api_key = st.secrets[APIkeys][OPENAI_API_KEY]
+    api_key = config.get('api_key')
 
     return api_key
+
+def display_image(image_path):
+    """画像を表示する関数"""
+    try:
+        img = cv2.imread(image_path)  # cv2 を使用して画像を読み込む
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # BGR から RGB に色空間を変換
+        st.image(img, caption=image_path, use_column_width=True)
+    except Exception as e:
+        st.error(f"画像の表示中にエラーが発生しました: {e}")
