@@ -4,6 +4,12 @@ from collections import Counter
 from unstructured.partition.pdf import partition_pdf
 from deep_translator import GoogleTranslator
 
+try:
+    import cv2
+except ImportError:
+    from PIL import Image
+    cv2 = Image
+
 # SpaCyのモデルをロード（英語モデル）
 nlp = spacy.load('en_core_web_sm')
 
