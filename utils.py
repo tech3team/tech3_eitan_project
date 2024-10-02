@@ -3,9 +3,14 @@ import os
 import pandas as pd
 import json
 
+try:
+    import cv2
+except ImportError:
+    from PIL import Image
+    cv2 = Image  # cv2 の代わりに Pillow を使用する
 
 def load_csv(file_name):
-    """csvファイルのの読み込み"""
+    """csvファイルの読み込み"""
     file_path = os.path.join('database', file_name)
     print(file_path)
 
