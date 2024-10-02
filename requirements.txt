@@ -2,7 +2,6 @@ openai
 streamlit
 matplotlib
 spacy
-en_core_web_sm
 unstructured[pdf]
 deep_translator
-opencv-python-headless
+opencv-python
