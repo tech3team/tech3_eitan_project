@@ -1,7 +1,8 @@
 openai
 streamlit
 matplotlib
-spacy[lookups]
+spacy
+en_core_web_sm
 unstructured[pdf]
 deep_translator
-Pillow
+opencv-python-headless
