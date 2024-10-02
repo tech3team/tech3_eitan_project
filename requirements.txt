@@ -5,4 +5,4 @@ spacy
 en_core_web_sm
 unstructured[pdf]
 deep_translator
-opencv-python-headless
+Pillow
