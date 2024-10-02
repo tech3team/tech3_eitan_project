@@ -1,8 +1,7 @@
 openai
 streamlit
 matplotlib
-spacy
-en_core_web_sm
+spacy[lookups]
 unstructured[pdf]
 deep_translator
 Pillow
