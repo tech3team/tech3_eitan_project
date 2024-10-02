@@ -4,3 +4,4 @@ matplotlib
 spacy
 unstructured[pdf]
 deep_translator
+opencv-python
