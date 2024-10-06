@@ -7,7 +7,7 @@ from datetime import timedelta
 df = pd.read_csv('database/word_db.csv')
 
 # 日付のフォーマットを統一し、datetime型に変換
-df['Date'] = pd.to_datetime(df['Date'], format='%Y/%m/%d')
+df['Add Date'] = pd.to_datetime(df['Add Date'], format='%Y-%m-%d')
 
 # 累計学習語数
 total_words_learned = len(df['Word'])
@@ -18,7 +18,7 @@ def calculate_consecutive_days(df):
     previous_date = None
 
     for index, row in df.iterrows():
-        current_date = row['Date']  # 日付はすでにdatetime型になっている
+        current_date = row['Add Date']  # 日付はすでにdatetime型になっている
 
         if previous_date is None or current_date == previous_date + timedelta(days=1):
             consecutive_days += 1
@@ -47,7 +47,7 @@ with col1:
 
     # matplotlibでグラフを描画
     fig, ax = plt.subplots()
-    ax.bar(df['Date'], df['Word'], color='skyblue')
+    ax.bar(df['Add Date'], df['Word'], color='skyblue')
 
     ax.set_title('one day')
     ax.set_xlabel('date')

@@ -2,6 +2,7 @@ openai
 streamlit
 matplotlib
 spacy
-unstructured[pdf]
+'unstructured[pdf]'
 deep_translator
-opencv-python
+sentence-transformers
+plotly

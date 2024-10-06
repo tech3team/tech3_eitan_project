@@ -5,7 +5,7 @@ import os
 st.title("設定")
 
 # setting.csvファイルのパスを指定
-setting_csv_path = "mysetting/setting.csv"  # パスを変更
+setting_csv_path = "database/setting.csv"  # パスを変更
 
 # setting.csvファイルから設定を読み込む
 if os.path.exists(setting_csv_path):

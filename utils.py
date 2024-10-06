@@ -7,7 +7,6 @@ import json
 def load_csv(file_name):
     """csvファイルのの読み込み"""
     file_path = os.path.join('database', file_name)
-    print(file_path)
 
     try:
         df = pd.read_csv(file_path)
@@ -23,13 +22,9 @@ def load_csv(file_name):
 
 def load_api_key():
     """api_keyの取得"""
-    "" local
-    "" with open('config.json', 'r') as file:
-    ""    config = json.load(file)
+    with open('config.json', 'r') as file:
+        config = json.load(file)
 
-    "" api_key = config.get('api_key')
-
-    "" Streamlit Cloud
-    api_key = st.secrets[APIkeys][OPENAI_API_KEY]
+    api_key = config.get('api_key')
 
     return api_key

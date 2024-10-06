@@ -10,19 +10,21 @@
 
 ## インストール
 ライブラリをインストールします。
-必要となるライブラリは、`requirements.txt`に書いています。
+
+必要となるライブラリは、`requirements.txt`に的間ています。
 ```
 pip3 install -r requirements.txt
 ```
 
-論文の登録を動かす場合、以下のコードでモデルのインストールが必要かもしれません。
+論文の登録を動かす場合、以下のコードでモデルのインストールが必要かもです。(ちぐちぐに聞いてみてください)
 ```
 python -m spacy download en_core_web_sm
 ```
 
 ## ファイル構造
-コード同士が干渉しないように作成しました。
-各機能を1ファイルに、`main.py`から呼び出しをかけています。
+あんまり、コード同士が干渉しないように、作成しました。
+人のコードもあんまりいじらないように結合しました。
+各個人が実装した機能を1ファイルに、`main.py`から呼び出しをかけています。
 
 ```txt 
 .
@@ -84,11 +86,11 @@ python -m spacy download en_core_web_sm
     - main.pyをカレントディレクトリと見てください。
 - csvファイルについて
     - 単語登録csvは`word_db.csv`です。
-        - カラム名は`Word`,`Meaning`,`Pronounce`,`Example Sentence`,`Translated Sentence`,`Search Count`,`Add Data`,`Category`です。
+        - カラム名は`Word`,`Meaning`,`Pronounce`,`Example Sentence`,`Translated Sentence`,`Search Count`,`Add Date`,`Category`,`Importance`,`Done`です。
     - 論文用csvは`paper_db.csv`です。
-        - カラム名は`Word`,`Meaning`,`Frequency`,`Add Data`,`Category`,`Search Count`です。
+        - カラム名は`Word`,`Meaning`,`Appearance Frequency`,`Add Date`,`Category`,`Search Count`,`Importance`,`Done`です。
     - 設定用csvは`setting.csv` 
-        - カラム名は`Final Login`,`Character`,`Goal`,`Continue Days`です。
+        - カラム名は`FinalLogin`,`Character`,`Goal`,`ContinueDays`,`Gender`,`Age`,`UserProfile`,`UserInterest`,`ColorPattern`です
     - csvファイル新規作成や、読み込みは`database`ディレクトリ内にお願いします。
 - 画像ファイルの保存先
     - 使用する画像は、`images`ディレクトリ内にお願いします。
