@@ -11,11 +11,14 @@
     position: absolute;
     border-radius: 50%;
     color: white;
-    border: none; /* 不要な線を削除 */
+    border: 2px solid rgba(255, 255, 255, 0.174); /* 白い縁を追加 */
     outline: none; /* 不要なアウトラインを削除 */
     font-weight: bold;
     cursor: pointer;
     transform: translate(-50%, -50%);
+    white-space: nowrap; /* テキストを1行に制限 */
+    overflow: hidden; /* はみ出した部分を隠す */
+    text-overflow: ellipsis; /* 省略記号を表示 */
 }
 
 .overlay {
@@ -42,6 +45,9 @@
     text-align: center;
     position: relative;
     width: 300px;
+    white-space: nowrap; /* テキストを1行に制限 */
+    overflow: hidden; /* はみ出した部分を隠す */
+    text-overflow: ellipsis; /* 省略記号を表示 */
 }
 
 .close-button {
