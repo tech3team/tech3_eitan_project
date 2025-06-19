@@ -78,7 +78,7 @@ def mendo(df, done):
     df.loc[df['tmp'] > 6, 'tmp'] = 50
     df.loc[(df['tmp'] <= 6) & (df['tmp'] >=3), 'tmp'] = 35
     df.loc[df['tmp'] < 3, 'tmp'] = 20
-    
+
     df = df.sort_values('tmp', ascending=False)
     # バブルを配置するパラメータ
     center_x, center_y = 200, 300  # 円の中心
@@ -101,7 +101,7 @@ def mendo(df, done):
     # バブルの半径（例: 固定または可変）
     # df = df.sample(n=50)
     radii =  df['tmp'].values.tolist() # [40, 50, 60, 55, 25, 34, 60, 30]
-    count = df['Learning Point'].values.tolist() 
+    count = df['Learning Point'].values.tolist()
     name = df['Word'].values.tolist()
     mean = df['Meaning'].values.tolist()
     example = df['Example Sentence'].values.tolist()
@@ -124,7 +124,7 @@ def mendo_paper(df, done):
     df.loc[df['tmp'] > 6, 'tmp'] = 50
     df.loc[(df['tmp'] <= 6) & (df['tmp'] >=3), 'tmp'] = 35
     df.loc[df['tmp'] < 3, 'tmp'] = 20
-    
+
     df = df.sort_values('tmp', ascending=False)
     # バブルを配置するパラメータ
     center_x, center_y = 200, 300  # 円の中心
@@ -147,7 +147,7 @@ def mendo_paper(df, done):
     # バブルの半径（例: 固定または可変）
     # df = df.sample(n=50)
     radii =  df['tmp'].values.tolist() # [40, 50, 60, 55, 25, 34, 60, 30]
-    count = df['Learning Point'].values.tolist() 
+    count = df['Learning Point'].values.tolist()
     name = df['Word'].values.tolist()
     mean = df['Meaning'].values.tolist()
     color = df['Category'].values.tolist()

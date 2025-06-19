@@ -1,0 +1,28 @@
+.bubble-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.bubble-container button {
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 小さい円のスタイル */
+.small-circle {
+    position: absolute;
+    border-radius: 50%;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 1;
+}
+
+.animate-out {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+}
