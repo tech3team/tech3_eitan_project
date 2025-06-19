@@ -7,7 +7,11 @@
 - python
 - OpenAI API使用
 - Google Cloud text-to-speech API使用
-
+## 制作背景（課題、目的など）
+- 英単語を「覚える」前の段階、すなわち「覚えやすくする」ための補助ツールとして開発しました。背景として、チームメンバー全員が「調べた単語がなかなか覚えられない」という課題意識を共有しており、これを視覚的に支援できないかと考えたことが出発点です。特に「勉強しても手応えが得られない」「正の字での記録が続かない」など、記録と記憶のギャップに着目し、可視化によりその学習過程を実感できるようにすることを目指しました。
+- 視化手法として「バブル」を採用したのは、単語の調査回数を直感的に把握できるからです。バブルの大きさはその単語をどれだけ調べたかを示し、一目で「覚えきれていない単語」がわかるようにしています。加えて、バブルが弾ける演出には「視覚的・聴覚的な刺激により記憶定着を促す」狙いもあります。
+## 技術選定およびその意図
+- 技術選定としては、PythonとStreamlitを採用しました。これはチームメンバー全員が開発初心者でありながら、共通で扱える言語がPythonだったためです。また、Streamlitはシンプルな記述で即時にWebアプリ化が可能であり、共同作業・デモ運用においても非常に扱いやすい環境であったことから、迅速なプロトタイピングに最適でした。
 ## インストール
 ライブラリをインストールします。
 
@@ -25,7 +29,7 @@ python -m spacy download en_core_web_sm
 コード同士が干渉しないように、作成しました。
 各個人が実装した機能を1ファイルに、`main.py`から呼び出しをかけています。
 
-```txt 
+```txt
 .
 ├── README.md
 ├── __pycache__
@@ -88,7 +92,7 @@ python -m spacy download en_core_web_sm
         - カラム名は`Word`,`Meaning`,`Pronounce`,`Example Sentence`,`Translated Sentence`,`Search Count`,`Add Date`,`Category`,`Importance`,`Done`です。
     - 論文用csvは`paper_db.csv`です。
         - カラム名は`Word`,`Meaning`,`Appearance Frequency`,`Add Date`,`Category`,`Search Count`,`Importance`,`Done`です。
-    - 設定用csvは`setting.csv` 
+    - 設定用csvは`setting.csv`
         - カラム名は`FinalLogin`,`Character`,`Goal`,`ContinueDays`,`Gender`,`Age`,`UserProfile`,`UserInterest`,`ColorPattern`です
     - csvファイル新規作成や、読み込みは`database`ディレクトリ内にお願いします。
 - 画像ファイルの保存先

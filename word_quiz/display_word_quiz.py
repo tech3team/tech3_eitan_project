@@ -8,7 +8,7 @@ def display_results(quiz_list): # 文字を大きく
     st.write("## テスト結果")
     # 学習目標
     # st.markdown("<hr style='border:3px solid gray'>", unsafe_allow_html=True)
-    
+
     # スコアに応じたメッセージの表示（中央揃え）
     if st.session_state.score == len(quiz_list):
         st.markdown("<h2 style='text-align: center; color: black;'>Excellent</h2>", unsafe_allow_html=True)
@@ -24,9 +24,9 @@ def display_results(quiz_list): # 文字を大きく
 
     st.markdown(f"<h3 style='text-align: right; color: black;'>Score:　{st.session_state.score}/{len(quiz_list)}</h3>", unsafe_allow_html=True)
     # st.write(f"Score: {st.session_state.score}/{len(quiz_list)}")
-    
+
     # 2列で結果を表示
-    col1, col2 = st.columns(2)  
+    col1, col2 = st.columns(2)
 
     for i, res in enumerate(st.session_state.results):
         with col1 if i % 2 == 0 else col2:  # 奇数はcol1、偶数はcol2に表示
@@ -35,7 +35,7 @@ def display_results(quiz_list): # 文字を大きく
                 st.success(f"⚪︎　{res['word']} : {res['meaning']}")
             else:
                 st.info(f"×　{res['word']} : {res['meaning']}")
-                
+
 
 def display_quiz(quiz_list):
     """生成したクイズのリストから、順に取り出し表示する"""
@@ -44,7 +44,7 @@ def display_quiz(quiz_list):
         st.session_state.score = 0
         st.session_state.results = []  # クイズの結果を保存するリスト
         st.session_state.show_results = False  # 結果画面を表示するかどうかのフラグ
-    
+
     # クイズが全て終了し、結果画面が表示される場合
     if st.session_state.show_results == True:
         display_results(quiz_list)  # 結果画面の表示を別の関数に分ける
@@ -91,33 +91,33 @@ def display_quiz(quiz_list):
             st.session_state.show_results = True
 
             # 結果画面の遷移
-            if st.button("結果画面"):  
+            if st.button("結果画面"):
                 st.rerun()  # 画面を再描画して結果画面を表示
 
 
 def main():
     """クイズがスタートする画面表示"""
     st.title("単語テスト")
-    
+
     if 'quiz_list' not in st.session_state:
         # 問題モードの選択
         quiz_mode = st.radio(
-            "問題のタイプを選択してください:", 
-            ('基本単語帳もーど', '論文もーど', 'ガッチャンコもーど'), 
+            "問題のタイプを選択してください:",
+            ('基本単語帳もーど', '論文もーど', 'ガッチャンコもーど'),
             horizontal=True)
-        
+
         # カテゴリの選択
         quiz_category = st.selectbox(
             "出題の方法を指定してください:",
             ['認知科学', '強化学習', 'データ分析', 'その他'],
             index = 0)
-        
+
         # 出題方法の選択
         quiz_type = st.selectbox(
             "出題の方法を指定してください:",
             ['4択単語問題：日→英', '4択単語問題：英→日'],
             index = 0)
-        
+
         # 出題方法からファイルパスを選ぶ
         if quiz_mode == "基本単語帳もーど":
             file_name="word_db.csv"
@@ -125,20 +125,20 @@ def main():
             file_name="paper_db.csv"
         elif quiz_mode == "ガッチャンコもーど":
             file_name=["word_db.csv", "paper_db.csv"]
-        
+
         # 問題数を指定する
         n_word_test = st.selectbox(
             "問題数を指定してください:",
             [2, 5, 10, 20, 50],
             index = 1)
-        
+
         if st.button("この設定で開始する"):
             top_words = process_csv(file_name, n_word_test, quiz_mode, quiz_category) # CSVの処理
             print(top_words)
             quiz_list = generate_quiz(top_words, quiz_type)  # クイズの生成
             st.session_state.quiz_list = quiz_list  # セッション状態に保存
             st.rerun()
-    
+
     # クイズが生成されていれば問題の表示
     elif 'quiz_list' in st.session_state:
         display_quiz(st.session_state.quiz_list)
